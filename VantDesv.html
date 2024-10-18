@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/javascripticon.ico" type="image/png">
+    <title>Vantagens e Desvantagens</title>
+</head>
+<body>
+    <div class="buttonvoltar"></div>
+      <a href="./index.html">
+        <button onclick="voltar('inicio')">VOLTAR</button>
+      </a>
+
+      <div class="card">
+        <div class="circle" style="--clr:#5abafd;">
+            <img src="/img/ajaxnome.png" alt="" class="logo">
+        </div>
+        <div class="content">
+              <h1>Vantagens:</h1>
+              <p>-Permite a atualização assíncrona de páginas web sem recarregar toda a página.</p>
+              <p>-Melhora a experiência do usuário ao tornar as aplicações mais responsivas.</p>
+              <br>
+              <h1>Desvantagens:</h1>
+              <p>-Sintaxe mais complexa, especialmente para gerenciar callbacks (callback hell).</p>
+              <p>-Pode ser mais difícil de lidar em comparação com abordagens mais modernas (como Fetch API).</p>
+  
+            <!-- <a href="#">Read me</a> -->
+        </div>
+        <img src="/img/vantdesvlogo.png" alt="" class="product_img">
+    </div>
+
+    <div class="card2">
+      <div class="circle" style="--clr:#fbe649;">
+          <img src="/img/promisesnome.png" alt="" class="logo">
+      </div>
+      <div class="content">
+            <h1>Vantagens:</h1>
+            <p>-Permitem uma abordagem mais limpa para trabalhar com operações assíncronas do que callbacks.</p>
+            <p>-Facilita o encadeamento de operações assíncronas usando .then() e .catch().</p>
+            <br>
+            <h1>-Desvantagens:</h1>
+            <p>-A sintaxe pode ainda ser verbosa e difícil de seguir em casos complexos, especialmente com encadeamentos longos.</p>
+          <!-- <a href="#">Read me</a> -->
+      </div>
+      <img src="/img/vantdesvlogo.png" alt="" class="product_img">
+  </div>
+
+  <div class="card3">
+    <div class="circle" style="--clr:#8c8c8c;">
+        <img src="/img/fetchapinome.png" alt="" class="logo">
+    </div>
+    <div class="content">
+          <h1>Vantagens:</h1>
+          <p>-Permitem uma abordagem mais limpa para trabalhar com operações assíncronas do que callbacks.</p>
+          <p>-Facilita o encadeamento de operações assíncronas usando .then() e .catch().</p>
+          <br>
+          <h1>-Desvantagens:</h1>
+          <p>-A sintaxe pode ainda ser verbosa e difícil de seguir em casos complexos, especialmente com encadeamentos longos.</p>
+        <!-- <a href="#">Read me</a> -->
+    </div>
+    <img src="/img/vantdesvlogo.png" alt="" class="product_img">
+</div>
+
+    <div class="grid" id="grid">
+      <photo-card
+          img=""></photo-card>
+      <photo-card
+          img="https://images.pexels.com/photos/844167/pexels-photo-844167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"></photo-card>
+      <photo-card
+          img="https://images.pexels.com/photos/1467300/pexels-photo-1467300.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"></photo-card>
+    </div>
+      
+  <style>
+    
+  body {
+    font-weight:bolder;
+    margin: 0;
+    padding: 0;
+    background-image: url('/img/javascript.jpg');
+    background-size: cover;
+    backdrop-filter: brightness(35%);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  
+  }
+
+  button {
+    padding: 25px 50px;
+    padding-inline: 1%;
+    position: relative;
+    top: 15px;
+    left: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+
+  button:hover {
+    background-color: #290268;
+  }
+
+.card{
+    position: relative;
+    width: 350px;
+    height: 350px;
+    /* background: #333; */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    top: 210px;
+    left: 8px;
+}
+.card:hover{
+    width: 600px;
+    transition-delay: 0.5s;
+}
+.card .circle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .circle::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 8px solid var(--clr);
+    background: #373737;
+    transition: 0.5s, background 0.5s;
+    transition-delay: 0.75s,1s;
+    filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
+}
+.card:hover .circle::before{
+    width: 100%;
+    transition-delay: 0.5s;
+    height: 100%;
+    border-radius: 20px;
+    background: var(--clr);
+}
+.card .circle .logo{
+    position: relative;
+    width: 200px;
+    top: -50px;
+    left: -40px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.card:hover .circle .logo{
+    transform: scale(0);
+    transition-delay: 0s;
+}
+.card .product_img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0) rotate(315deg);
+    height: 300px;
+    transition: 0.5s ease-in-out;
+}
+.card:hover .product_img{
+    transition-delay: 0.75s;
+    transform: translate(-50%,-50%) scale(1) rotate(15deg);
+    top: 45%;
+    left: 80%;
+    height: 140px;
+}
+.card .content{
+    position:absolute;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 40px;
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+}
+.card:hover .content{
+    transition-delay: 0.75s;
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+}
+.card .content h2{
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 2.4em;
+    line-height: 1em;
+}
+.card .content p{
+    color: #ffffff;
+}
+.card .content a{
+    position: relative;
+    color: #000000;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+
+
+
+
+.card2{
+    position: relative;
+    width: 350px;
+    height: 350px;
+    /* background: #333; */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    top: 200px;
+    left: 230px;
+}
+.card2:hover{
+    width: 600px;
+    transition-delay: 0.5s;
+}
+.card2 .circle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card2 .circle::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 8px solid var(--clr);
+    background: #fffdfd;
+    transition: 0.5s, background 0.5s;
+    transition-delay: 0.75s,1s;
+    filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
+}
+.card2:hover .circle::before{
+    width: 100%;
+    transition-delay: 0.5s;
+    height: 100%;
+    border-radius: 20px;
+    background: var(--clr);
+}
+.card2 .circle .logo{
+    position: relative;
+    width: 200px;
+    top: -42px;
+    right: 38px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.card2:hover .circle .logo{
+    transform: scale(0);
+    transition-delay: 0s;
+}
+.card2 .product_img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0) rotate(315deg);
+    height: 300px;
+    transition: 0.5s ease-in-out;
+}
+.card2:hover .product_img{
+    transition-delay: 0.75s;
+    transform: translate(-50%,-50%) scale(1) rotate(15deg);
+    top: 45%;
+    left: 80%;
+    height: 140px;
+}
+.card2 .content{
+    position:absolute;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 40px;
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+}
+.card2:hover .content{
+    transition-delay: 0.75s;
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+}
+.card2 .content h2{
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 2.4em;
+    line-height: 1em;
+}
+.card2 .content p{
+    color: #000000;
+}
+.card2 .content a{
+    position: relative;
+    color: #000000;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+
+
+
+.card3 {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    /* background: #333; */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    top: -750px;
+    left: 250px;
+}
+.card3:hover{
+    width: 600px;
+    transition-delay: 0.5s;
+}
+.card3 .circle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card3 .circle::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    border: 8px solid var(--clr);
+    background: #4b4b4b;
+    transition: 0.5s, background 0.5s;
+    transition-delay: 0.75s,1s;
+    filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
+}
+.card3:hover .circle::before{
+    width: 100%;
+    transition-delay: 0.5s;
+    height: 100%;
+    border-radius: 20px;
+    background: var(--clr);
+}
+.card3 .circle .logo{
+    position: relative;
+    width: 200px;
+    top: -50px;
+    right: 50px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.card3:hover .circle .logo{
+    transform: scale(0);
+    transition-delay: 0s;
+}
+.card3 .product_img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0) rotate(315deg);
+    height: 300px;
+    transition: 0.5s ease-in-out;
+}
+.card3:hover .product_img{
+    transition-delay: 0.75s;
+    transform: translate(-50%,-50%) scale(1) rotate(15deg);
+    top: 45%;
+    left: 80%;
+    height: 140px;
+}
+.card3 .content{
+    position:absolute;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 40px;
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+}
+.card3:hover .content{
+    transition-delay: 0.75s;
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+}
+.card3 .content h2{
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 2.4em;
+    line-height: 1em;
+}
+.card3 .content p{
+    color: #000000;
+}
+.card3 .content a{
+    position: relative;
+    color: #000000;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+
+
+
+
+.card4 {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    /* background: #333; */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    top: 120px;
+    left: 450px;
+}
+.card4:hover{
+    width: 600px;
+    transition-delay: 0.5s;
+}
+.card4 .circle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card4 .circle::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 8px solid var(--clr);
+    background: #fffdfd;
+    transition: 0.5s, background 0.5s;
+    transition-delay: 0.75s,1s;
+    filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
+}
+.card4:hover .circle::before{
+    width: 100%;
+    transition-delay: 0.5s;
+    height: 100%;
+    border-radius: 20px;
+    background: var(--clr);
+}
+.card4 .circle .logo{
+    position: relative;
+    width: 250px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.card4:hover .circle .logo{
+    transform: scale(0);
+    transition-delay: 0s;
+}
+.card4 .product_img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0) rotate(315deg);
+    height: 300px;
+    transition: 0.5s ease-in-out;
+}
+.card4:hover .product_img{
+    transition-delay: 0.75s;
+    transform: translate(-50%,-50%) scale(1) rotate(15deg);
+    top: 45%;
+    left: 80%;
+    height: 140px;
+}
+.card4 .content{
+    position:absolute;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 40px;
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+}
+.card4:hover .content{
+    transition-delay: 0.75s;
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+}
+.card4 .content h2{
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 2.4em;
+    line-height: 1em;
+}
+.card4 .content p{
+    color: #000000;
+}
+.card4 .content a{
+    position: relative;
+    color: #000000;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+
+
+
+
+.card5 {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    /* background: #333; */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    top: 120px;
+    left: 450px;
+}
+.card5:hover{
+    width: 600px;
+    transition-delay: 0.5s;
+}
+.card5 .circle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card5 .circle::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 8px solid var(--clr);
+    background: #fffdfd;
+    transition: 0.5s, background 0.5s;
+    transition-delay: 0.75s,1s;
+    filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
+}
+.card5:hover .circle::before{
+    width: 100%;
+    transition-delay: 0.5s;
+    height: 100%;
+    border-radius: 20px;
+    background: var(--clr);
+}
+.card5 .circle .logo{
+    position: relative;
+    width: 250px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.card5:hover .circle .logo{
+    transform: scale(0);
+    transition-delay: 0s;
+}
+.card5 .product_img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0) rotate(315deg);
+    height: 300px;
+    transition: 0.5s ease-in-out;
+}
+.card5:hover .product_img{
+    transition-delay: 0.75s;
+    transform: translate(-50%,-50%) scale(1) rotate(15deg);
+    top: 45%;
+    left: 80%;
+    height: 140px;
+}
+.card5 .content{
+    position:absolute;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 40px;
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+}
+.card5:hover .content{
+    transition-delay: 0.75s;
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+}
+.card5 .content h2{
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 2.4em;
+    line-height: 1em;
+}
+.card5 .content p{
+    color: #000000;
+}
+.card5 .content a{
+    position: relative;
+    color: #000000;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+}
+  </style>
+    
+</body>
+</html>

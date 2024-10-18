@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="/img/javascripticon.ico" type="image/png">
+    <link rel="stylesheet" href="/style.css">
+    <title>JavaScript</title>
+</head>
+<body>
+    
+    <!-- <a href="#" data-topic="assincronismo">Assincronismo em JavaScript</a>-->
+
+        <h1 class="title">Tópicos de Pesquisa</h1>
+        <p>Assincronismo em JavaScript</p>
+        <p>Definição e exemplos de assincronismo em JavaScript.</p>
+
+<div class="slider" x-data="{start: true, end: false}">
+  <div class="slider__content" x-ref="slider" x-on:scroll.debounce="$refs.slider.scrollLeft == 0 ? start = true : start = false; Math.abs(($refs.slider.scrollWidth - $refs.slider.offsetWidth) - $refs.slider.scrollLeft) < 5 ? end = true : end = false;">
+    <div class="slider__item">
+    <a href="./Ajax.html" target="_self">
+      <img class="slider__image" src="./img/ajax.png" alt="Image">
+    </a>
+      <div class="slider__info">
+        <h2>AJAX</h2>
+      </div>
+    </div>
+    <div class="slider__item">
+    <a href="./Promises.html" target="_self">
+      <img class="slider__image" src="./img/promises.png" alt="Image">
+    </a>
+      <div class="slider__info">
+        <h2>Promises</h2>
+      </div>
+    </div>
+    <div class="slider__item">
+    <a href="./FetchAPI.html" target="_self">
+      <img class="slider__image" src="./img/FetchAPI.png" alt="Image">
+    </a>
+      <div class="slider__info">
+        <h2>Fetch API</h2>
+      </div>
+    </div>
+    <div class="slider__item">
+    <a href="./AsyncAwait.html" target="_self">
+      <img class="slider__image" src="./img/AsyncAwait.png" alt="Image">
+    </a>
+      <div class="slider__info">
+        <h2>Async / Await</h2>
+      </div>
+    </div>
+    <div class="slider__item">
+    <a href="./VantDesv.html" target="_self">
+      <img class="slider__image" src="./img/VantagensDesvantagens.png" alt="Image">
+    </a>
+      <div class="slider__info">
+        <h2>Quais vantagens/desvantagens de usar cada uma das opções anteriores?</h2>
+      </div>
+    </div>
+    <div class="slider__item">
+    <a href="./Hoisting.html" target="_self">
+      <img class="slider__image" src="./img/hoisting.png" alt="Image">
+    </a>
+      <div class="slider__info">
+        <h2>Hoisting</h2>
+      </div>
+    </div>
+    <div class="slider__item">
+    <a href="./ArrowFunctions.html" target="_self">
+      <img class="slider__image" src="./img/ArrowFunctions.png" alt="Image">
+    </a>
+      <div class="slider__info">
+        <h2>Arrow Functions</h2>
+      </div>
+    </div>
+    <div class="slider__item">
+    <a href="./Destructuring.html" target="_self">
+      <img class="slider__image" src="./img/destructuring.png" alt="Image">
+    </a>
+      <div class="slider__info">
+        <h2>Destructuring</h2>
+      </div>
+    </div>
+    <div class="slider__item">
+    <a href="./Closure.html" target="_self">
+      <img class="slider__image" src="./img/closure.png" alt="Image">
+    </a>
+      <div class="slider__info">
+        <h2>Closure</h2>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.js'></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

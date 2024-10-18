@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/hostingicon.ico" type="image/png">
+    <title>Hoisting</title>
+</head>
+<body>
+    <div class="buttonvoltar"></div>
+      <a href="./index.html">
+        <button onclick="voltar('inicio')">VOLTAR</button>
+      </a>
+
+      <div class="card">
+        <div class="circle" style="--clr:#ffffff;">
+            <img src="/img/hoistingnome.png" alt="" class="logo">
+        </div>
+        <div class="content">
+            <p>- <mark>Declarações de variáveis:</mark> Quando você declara uma variável com var, ela é <u>"içada"</u> para o topo do seu escopo. 
+                 No entanto, o valor atribuído a essa variável permanece onde você o definiu. 
+                 Isso significa que se você tentar acessar uma variável antes de atribuir um valor a ela, o valor será <u>undefined.</u></p>
+            <br>
+            <p>- <mark>Declarações de funções:</mark> Funções declaradas com a palavra-chave function são inteiramente <u>"içadas"</u> para o topo do seu escopo. 
+                 Isso significa que você pode chamar uma função antes de sua declaração, e o código funcionará como esperado.</p>
+            <!-- <a href="#">Read me</a> -->
+        </div>
+        <img src="/img/Hoistinglogo.png" alt="" class="product_img">
+    </div>
+
+    
+
+    <div class="grid" id="grid">
+      <photo-card
+          img=""></photo-card>
+      <photo-card
+          img="https://images.pexels.com/photos/844167/pexels-photo-844167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"></photo-card>
+      <photo-card
+          img="https://images.pexels.com/photos/1467300/pexels-photo-1467300.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"></photo-card>
+    </div>
+
+    <img src="/img/exemplohoisting.png" alt="exemploajax" class="canto-superior-direito">
+      
+  <style>
+
+    mark {
+        background-color: rgb(255, 111, 0);
+    }
+    
+  body {
+    font-weight:bolder;
+    margin: 0;
+    padding: 0;
+    background-image: url('/img/javascript.jpg');
+    background-size: cover;
+    backdrop-filter: brightness(35%);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  button {
+    padding: 25px 50px;
+    padding-inline: 1%;
+    position: relative;
+    top: 15px;
+    left: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+
+  button:hover {
+    background-color: #290268;
+  }
+
+  .canto-superior-direito {
+  position: absolute;
+  top: 320px;
+  right: 450px;
+  height: 250px;
+  border-radius: 3.5%;
+}
+
+.card{
+    position: relative;
+    width: 350px;
+    height: 350px;
+    /* background: #333; */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    top: 190px;
+    left: 100px;
+}
+.card:hover{
+    width: 600px;
+    transition-delay: 0.5s;
+}
+.card .circle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .circle::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 8px solid var(--clr);
+    background: #ff9100;
+    transition: 0.5s, background 0.5s;
+    transition-delay: 0.75s,1s;
+    filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
+}
+.card:hover .circle::before{
+    width: 100%;
+    transition-delay: 0.5s;
+    height: 100%;
+    border-radius: 20px;
+    background: var(--clr);
+}
+.card .circle .logo{
+    position: relative;
+    width: 250px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.card:hover .circle .logo{
+    transform: scale(0);
+    transition-delay: 0s;
+}
+.card .product_img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0) rotate(315deg);
+    height: 300px;
+    transition: 0.5s ease-in-out;
+}
+.card:hover .product_img{
+    transition-delay: 0.75s;
+    transform: translate(-50%,-50%) scale(1) rotate(15deg);
+    top: 45%;
+    left: 80%;
+    height: 250px;
+}
+.card .content{
+    position:absolute;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 40px;
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+}
+.card:hover .content{
+    transition-delay: 0.75s;
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+}
+.card .content h2{
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 2.4em;
+    line-height: 1em;
+}
+.card .content p{
+    color: #000000;
+}
+.card .content a{
+    position: relative;
+    color: #111;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+  </style>
+    
+</body>
+</html>
